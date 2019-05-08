@@ -1,0 +1,96 @@
+(*
+ *
+ * File: CRC_Test.exp
+ *
+ * IEC 61131-3 Structured Text (ST) code generated for subsystem "CRC_Test/Subsystem"
+ *
+ * Model name                      : CRC_Test
+ * Model version                   : 1.74
+ * Model creator                   : kaili
+ * Model last modified by          : Kailin
+ * Model last modified on          : Wed May 08 01:13:35 2019
+ * Model sample time               : 0s
+ * Subsystem name                  : CRC_Test/Subsystem
+ * Subsystem sample time           : 0.25806s
+ * Simulink PLC Coder version      : 3.0 (R2019a) 23-Nov-2018
+ * ST code generated on            : Wed May 08 01:18:43 2019
+ *
+ * Target IDE selection            : 3S CoDeSys 2.3
+ * Test Bench included             : No
+ *
+ *)
+FUNCTION_BLOCK Subsystem
+VAR_INPUT
+    ssMethodType: SINT;
+    Input: ARRAY [0..30] OF USINT;
+END_VAR
+VAR_OUTPUT
+    Out1: USINT;
+    Out2: ARRAY [0..9] OF USINT;
+END_VAR
+VAR
+    Unbuffer_memIdx: DINT;
+    Unbuffer_CircBuff: ARRAY [0..30] OF USINT;
+    Transpose: ARRAY [0..30] OF USINT;
+END_VAR
+VAR_TEMP
+    j: DINT;
+    u: DINT;
+    rtb_Convertto10bit: ARRAY [0..9] OF USINT;
+    i: DINT;
+END_VAR
+CASE ssMethodType OF
+    SS_INITIALIZE: 
+        plc_ts_counter1 := 0;
+        (* InitializeConditions for Unbuffer: '<S1>/Unbuffer' *)
+        Unbuffer_memIdx := 0;
+        (* InitializeConditions for Unbuffer: '<S1>/Unbuffer' *)
+        FOR i := 0 TO 30 DO 
+            Unbuffer_CircBuff[i] := 0;
+        END_FOR;
+    SS_STEP: 
+        IF plc_ts_counter1 = 0 THEN 
+            FOR i := 0 TO 30 DO 
+                (* Math: '<S1>/Transpose' incorporates:
+                 *  Inport: '<Root>/Input' *)
+                Transpose[i] := Input[i];
+                (* Unbuffer: '<S1>/Unbuffer' *)
+                Unbuffer_CircBuff[i] := Transpose[i];
+            END_FOR;
+            (* Unbuffer: '<S1>/Unbuffer' *)
+            Unbuffer_memIdx := 0;
+        END_IF;
+        (* Unbuffer: '<S1>/Unbuffer' *)
+        Out1 := Unbuffer_CircBuff[Unbuffer_memIdx];
+        IF Unbuffer_memIdx < 30 THEN 
+            Unbuffer_memIdx := Unbuffer_memIdx + 1;
+        END_IF;
+        (* S-Function (scominttobit): '<S1>/Convert to 10 bit' *)
+        (* Integer to Bit Conversion *)
+        i := 10;
+        u := USINT_TO_DINT(Out1);
+        FOR j := 0 TO 9 DO 
+            rtb_Convertto10bit[i - 1] := UDINT_TO_USINT(DWORD_TO_UDINT(UDINT_TO_DWORD(DINT_TO_UDINT(u)) AND 1));
+            u := UDINT_TO_DINT(DWORD_TO_UDINT(SHR(UDINT_TO_DWORD(DINT_TO_UDINT(u)), 1)));
+            i := i - 1;
+        END_FOR;
+        (* End of S-Function (scominttobit): '<S1>/Convert to 10 bit' *)
+        (* Outport: '<Root>/Out2' *)
+        FOR i := 0 TO 9 DO 
+            Out2[i] := rtb_Convertto10bit[i];
+        END_FOR;
+        (* End of Outport: '<Root>/Out2' *)
+        IF plc_ts_counter1 >= 30 THEN 
+            plc_ts_counter1 := 0;
+        ELSE 
+            plc_ts_counter1 := plc_ts_counter1 + 1;
+        END_IF;
+END_CASE;
+END_FUNCTION_BLOCK
+VAR_GLOBAL CONSTANT
+    SS_INITIALIZE: SINT := 0;
+    SS_STEP: SINT := 1;
+END_VAR
+VAR_GLOBAL
+    plc_ts_counter1: DINT;
+END_VAR

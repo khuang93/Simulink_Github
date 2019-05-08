@@ -1,0 +1,94 @@
+(*
+ *
+ * File: CRC_Test.exp
+ *
+ * IEC 61131-3 Structured Text (ST) code generated for subsystem "CRC_Test/Subsystem1"
+ *
+ * Model name                      : CRC_Test
+ * Model version                   : 1.102
+ * Model creator                   : kaili
+ * Model last modified by          : Kailin
+ * Model last modified on          : Wed May 08 02:08:54 2019
+ * Model sample time               : 0s
+ * Subsystem name                  : CRC_Test/Subsystem1
+ * Subsystem sample time           : 0.25806s
+ * Simulink PLC Coder version      : 3.0 (R2019a) 23-Nov-2018
+ * ST code generated on            : Wed May 08 02:10:40 2019
+ *
+ * Target IDE selection            : 3S CoDeSys 2.3
+ * Test Bench included             : No
+ *
+ *)
+FUNCTION_BLOCK Subsystem1
+VAR_INPUT
+    In1: ARRAY [0..9] OF BOOL;
+END_VAR
+VAR_OUTPUT
+    Out1: ARRAY [0..12] OF BOOL;
+END_VAR
+VAR
+    c_GeneralCRCGenerator_CRCTa: ARRAY [0..255] OF UDINT := 0,3,6,5,7,4,1,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+        0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+        0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+        0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+        0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+        0,0,0,0,0,0,0,0,0,0,0,0;
+END_VAR
+VAR_TEMP
+    i: DINT;
+    shReg: UDINT;
+    bitMask: DINT;
+    input: DINT;
+    bitNumber: DINT;
+END_VAR
+(* S-Function (scomcrcgen): '<S1>/General CRC Generator' incorporates:
+ *  Inport: '<Root>/In1'
+ *  Outport: '<Root>/Out1' *)
+(* Initialize for current sub-frame *)
+shReg := 0;
+bitNumber := 0;
+i := 0;
+WHILE DINT_TO_UDINT(i) < 4 DO
+    input := 0;
+    bitMask := 4;
+    IF bitNumber < 10 THEN 
+        Out1[bitNumber] := In1[bitNumber];
+        (* Build input data chunk *)
+        input := UDINT_TO_DINT(DWORD_TO_UDINT(SHL(UDINT_TO_DWORD(BOOL_TO_UDINT(In1[bitNumber])), 2)));
+        bitMask := 2;
+        bitNumber := bitNumber + 1;
+    END_IF;
+    IF bitNumber < 10 THEN 
+        Out1[bitNumber] := In1[bitNumber];
+        (* Build input data chunk *)
+        input := UDINT_TO_DINT(DWORD_TO_UDINT(UDINT_TO_DWORD(DINT_TO_UDINT(bitMask) * BOOL_TO_UDINT(In1[bitNumber])) OR UDINT_TO_DWORD(DINT_TO_UDINT(input))));
+        bitMask := UDINT_TO_DINT(DWORD_TO_UDINT(SHR(UDINT_TO_DWORD(DINT_TO_UDINT(bitMask)), 1)));
+        bitNumber := bitNumber + 1;
+    END_IF;
+    IF bitNumber < 10 THEN 
+        Out1[bitNumber] := In1[bitNumber];
+        (* Build input data chunk *)
+        input := UDINT_TO_DINT(DWORD_TO_UDINT(UDINT_TO_DWORD(DINT_TO_UDINT(bitMask) * BOOL_TO_UDINT(In1[bitNumber])) OR UDINT_TO_DWORD(DINT_TO_UDINT(input))));
+        bitNumber := bitNumber + 1;
+    END_IF;
+    (* Retrieve value from CRC table and update register *)
+    shReg := DWORD_TO_UDINT(((SHL(UDINT_TO_DWORD(shReg), 3)) OR UDINT_TO_DWORD(DINT_TO_UDINT(input))) XOR UDINT_TO_DWORD(c_GeneralCRCGenerator_CRCTa[shReg AND 7]));
+    i := i + 1;
+END_WHILE;
+(* Process the leftover bits *)
+i := 0;
+WHILE DINT_TO_UDINT(i) < 1 DO
+    bitNumber := UDINT_TO_DINT(DWORD_TO_UDINT((SHR(UDINT_TO_DWORD(shReg), 2)) AND 1));
+    shReg := DWORD_TO_UDINT(SHL(UDINT_TO_DWORD(shReg), 1));
+    IF DINT_TO_UDINT(bitNumber) <> 0 THEN 
+        shReg := DWORD_TO_UDINT(UDINT_TO_DWORD(shReg) XOR 3);
+    END_IF;
+    i := i + 1;
+END_WHILE;
+(* Apply final XOR *)
+(* Output the register *)
+Out1[10] := DWORD_TO_UDINT((SHR(UDINT_TO_DWORD(shReg), 2)) AND 1) <> 0;
+Out1[11] := DWORD_TO_UDINT((SHR(UDINT_TO_DWORD(shReg), 1)) AND 1) <> 0;
+Out1[12] := DWORD_TO_UDINT(UDINT_TO_DWORD(shReg) AND 1) <> 0;
+(* End of S-Function (scomcrcgen): '<S1>/General CRC Generator' *)
+END_FUNCTION_BLOCK

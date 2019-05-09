@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<project><!--(*
+ *
+ * File: CRC_Test_2.xml
+ *
+ * IEC 61131-3 Structured Text (ST) code generated for subsystem "CRC_Test_2/Subsystem3"
+ *
+ * Model name                      : CRC_Test_2
+ * Model version                   : 1.108
+ * Model creator                   : kaili
+ * Model last modified by          : kaili
+ * Model last modified on          : Thu May 09 23:16:39 2019
+ * Model sample time               : 0s
+ * Subsystem name                  : CRC_Test_2/Subsystem3
+ * Subsystem sample time           : 0.72727s
+ * Simulink PLC Coder version      : 3.0 (R2019a) 23-Nov-2018
+ * ST code generated on            : Thu May 09 23:27:39 2019
+ *
+ * Target IDE selection            : 3S CoDeSys 3.5
+ * Test Bench included             : No
+ *
+ *)
+-->
+   <fileHeader companyName="The Mathworks, Inc." companyURL="www.mathworks.com" contentDescription="" creationDateTime="2019-05-09T23:27:39" productName="Simulink PLC Coder" productRelease="(R2019a)" productVersion="3.0"/>
+   <contentHeader name="CRC_Test_2">
+      <coordinateInfo>
+         <fbd>
+            <scaling x="0" y="0"/>
+         </fbd>
+         <ld>
+            <scaling x="0" y="0"/>
+         </ld>
+         <sfc>
+            <scaling x="0" y="0"/>
+         </sfc>
+      </coordinateInfo>
+   </contentHeader>
+   <types>
+      <dataTypes/>
+      <pous>
+         <pou name="Subsystem3" pouType="functionBlock">
+            <interface>
+               <inputVars>
+                  <variable name="ssMethodType">
+                     <type>
+                        <SINT/>
+                     </type>
+                  </variable>
+                  <variable name="In1">
+                     <type>
+                        <array>
+                           <dimension lower="0" upper="10"/>
+                           <baseType>
+                              <LREAL/>
+                           </baseType>
+                        </array>
+                     </type>
+                  </variable>
+               </inputVars>
+               <outputVars>
+                  <variable name="Out1">
+                     <type>
+                        <LREAL/>
+                     </type>
+                  </variable>
+                  <variable name="Out2">
+                     <type>
+                        <array>
+                           <dimension lower="0" upper="2"/>
+                           <baseType>
+                              <BOOL/>
+                           </baseType>
+                        </array>
+                     </type>
+                  </variable>
+               </outputVars>
+               <localVars>
+                  <variable name="UnitDelay2_DSTATE">
+                     <type>
+                        <BOOL/>
+                     </type>
+                  </variable>
+                  <variable name="Unbuffer_memIdx">
+                     <type>
+                        <DINT/>
+                     </type>
+                  </variable>
+                  <variable name="UnitDelay_DSTATE">
+                     <type>
+                        <BOOL/>
+                     </type>
+                  </variable>
+                  <variable name="UnitDelay1_DSTATE">
+                     <type>
+                        <BOOL/>
+                     </type>
+                  </variable>
+                  <variable name="Unbuffer_CircBuff">
+                     <type>
+                        <array>
+                           <dimension lower="0" upper="10"/>
+                           <baseType>
+                              <LREAL/>
+                           </baseType>
+                        </array>
+                     </type>
+                  </variable>
+                  <variable name="rtb_UnitDelay2">
+                     <type>
+                        <BOOL/>
+                     </type>
+                  </variable>
+                  <variable name="rtb_LogicalOperator2">
+                     <type>
+                        <BOOL/>
+                     </type>
+                  </variable>
+                  <variable name="i">
+                     <type>
+                        <DINT/>
+                     </type>
+                  </variable>
+               </localVars>
+            </interface>
+            <body>
+               <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">
+<![CDATA[
+CASE ssMethodType OF
+    SS_INITIALIZE: 
+        plc_ts_counter1 := 0;
+        (* InitializeConditions for UnitDelay: '<S1>/Unit Delay2' *)
+        UnitDelay2_DSTATE := FALSE;
+        (* InitializeConditions for Unbuffer: '<S1>/Unbuffer' *)
+        Unbuffer_memIdx := 0;
+        (* InitializeConditions for Unbuffer: '<S1>/Unbuffer' *)
+
+        FOR i := 0 TO 10 DO 
+            Unbuffer_CircBuff[i] := 0.0;
+        END_FOR;
+
+        (* InitializeConditions for UnitDelay: '<S1>/Unit Delay' *)
+        UnitDelay_DSTATE := FALSE;
+        (* InitializeConditions for UnitDelay: '<S1>/Unit Delay1' *)
+        UnitDelay1_DSTATE := FALSE;
+    SS_STEP: 
+        (* UnitDelay: '<S1>/Unit Delay2' *)
+        rtb_UnitDelay2 := UnitDelay2_DSTATE;
+        (* Unbuffer: '<S1>/Unbuffer' incorporates:
+         *  Inport: '<Root>/In1' *)
+
+        IF plc_ts_counter1 = 0 THEN 
+
+            FOR i := 0 TO 10 DO 
+                Unbuffer_CircBuff[i] := In1[i];
+            END_FOR;
+
+            Unbuffer_memIdx := 0;
+        END_IF;
+
+        Out1 := Unbuffer_CircBuff[Unbuffer_memIdx];
+
+        IF Unbuffer_memIdx < 10 THEN 
+            Unbuffer_memIdx := Unbuffer_memIdx + 1;
+        END_IF;
+
+        (* End of Unbuffer: '<S1>/Unbuffer' *)
+        
+
+        (* Logic: '<S1>/Logical Operator2' incorporates:
+         *  UnitDelay: '<S1>/Unit Delay' *)
+        rtb_LogicalOperator2 := rtb_UnitDelay2 XOR UnitDelay_DSTATE;
+        (* Outport: '<Root>/Out2' incorporates:
+         *  UnitDelay: '<S1>/Unit Delay'
+         *  UnitDelay: '<S1>/Unit Delay1' *)
+        Out2[0] := rtb_UnitDelay2;
+        Out2[1] := UnitDelay1_DSTATE;
+        Out2[2] := UnitDelay_DSTATE;
+        (* Update for UnitDelay: '<S1>/Unit Delay2' incorporates:
+         *  UnitDelay: '<S1>/Unit Delay1' *)
+        UnitDelay2_DSTATE := UnitDelay1_DSTATE;
+        (* Update for UnitDelay: '<S1>/Unit Delay' incorporates:
+         *  Logic: '<S1>/Logical Operator' *)
+        UnitDelay_DSTATE := (Out1 <> 0.0) XOR rtb_UnitDelay2;
+        (* Update for UnitDelay: '<S1>/Unit Delay1' *)
+        UnitDelay1_DSTATE := rtb_LogicalOperator2;
+
+        IF plc_ts_counter1 >= 10 THEN 
+            plc_ts_counter1 := 0;
+        ELSE 
+            plc_ts_counter1 := plc_ts_counter1 + 1;
+        END_IF;
+
+END_CASE;
+
+]]>
+</xhtml>
+               </ST>
+            </body>
+         </pou>
+      </pous>
+   </types>
+   <instances>
+      <configurations/>
+   </instances>
+   <addData>
+      <data handleUnknown="implementation" name="http://www.3s-software.com/plcopenxml/globalvars">
+         <globalVars constant="true" name="GVL_CONSTS">
+            <variable name="SS_INITIALIZE">
+               <type>
+                  <SINT/>
+               </type>
+               <initialValue>
+                  <simpleValue value="0"/>
+               </initialValue>
+            </variable>
+            <variable name="SS_STEP">
+               <type>
+                  <SINT/>
+               </type>
+               <initialValue>
+                  <simpleValue value="1"/>
+               </initialValue>
+            </variable>
+         </globalVars>
+      </data>
+      <data handleUnknown="implementation" name="http://www.3s-software.com/plcopenxml/globalvars">
+         <globalVars name="GVL_VARS">
+            <variable name="plc_ts_counter1">
+               <type>
+                  <DINT/>
+               </type>
+            </variable>
+         </globalVars>
+      </data>
+   </addData>
+   <addData>
+      <data handleUnknown="discard" name="http://www.3s-software.com/plcopenxml/projectstructure">
+         <ProjectStructure>
+            <Object Name="GVL_CONSTS"/>
+            <Object Name="GVL_VARS"/>
+            <Object Name="Subsystem3"/>
+         </ProjectStructure>
+      </data>
+   </addData>
+</project>

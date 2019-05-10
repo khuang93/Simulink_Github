@@ -3,25 +3,25 @@
  *
  * File: CRC_Test.xml
  *
- * IEC 61131-3 Structured Text (ST) code generated for subsystem "CRC_Test/Subsystem1"
+ * IEC 61131-3 Structured Text (ST) code generated for subsystem "CRC_Test/Subsys Matlab Fun CRC Generator"
  *
  * Model name                      : CRC_Test
- * Model version                   : 1.105
+ * Model version                   : 1.146
  * Model creator                   : kaili
  * Model last modified by          : kaili
- * Model last modified on          : Thu May 09 21:58:50 2019
+ * Model last modified on          : Fri May 10 04:35:28 2019
  * Model sample time               : 0s
- * Subsystem name                  : CRC_Test/Subsystem1
- * Subsystem sample time           : 0.25806s
+ * Subsystem name                  : CRC_Test/Subsys Matlab Fun CRC Generator
+ * Subsystem sample time           : 6s
  * Simulink PLC Coder version      : 3.0 (R2019a) 23-Nov-2018
- * ST code generated on            : Thu May 09 23:30:09 2019
+ * ST code generated on            : Fri May 10 04:36:40 2019
  *
  * Target IDE selection            : 3S CoDeSys 3.5
  * Test Bench included             : No
  *
  *)
 -->
-   <fileHeader companyName="The Mathworks, Inc." companyURL="www.mathworks.com" contentDescription="" creationDateTime="2019-05-09T23:30:09" productName="Simulink PLC Coder" productRelease="(R2019a)" productVersion="3.0"/>
+   <fileHeader companyName="The Mathworks, Inc." companyURL="www.mathworks.com" contentDescription="" creationDateTime="2019-05-10T04:36:40" productName="Simulink PLC Coder" productRelease="(R2019a)" productVersion="3.0"/>
    <contentHeader name="CRC_Test">
       <coordinateInfo>
          <fbd>
@@ -38,7 +38,7 @@
    <types>
       <dataTypes/>
       <pous>
-         <pou name="Subsystem1" pouType="functionBlock">
+         <pou name="Subsys" pouType="functionBlock">
             <interface>
                <inputVars>
                   <variable name="In1">
@@ -51,6 +51,16 @@
                         </array>
                      </type>
                   </variable>
+                  <variable name="In2">
+                     <type>
+                        <array>
+                           <dimension lower="0" upper="3"/>
+                           <baseType>
+                              <LREAL/>
+                           </baseType>
+                        </array>
+                     </type>
+                  </variable>
                </inputVars>
                <outputVars>
                   <variable name="Out1">
@@ -58,818 +68,71 @@
                         <array>
                            <dimension lower="0" upper="12"/>
                            <baseType>
-                              <BOOL/>
+                              <LREAL/>
                            </baseType>
                         </array>
                      </type>
                   </variable>
                </outputVars>
                <localVars>
-                  <variable name="c_GeneralCRCGenerator_CRCTa">
+                  <variable name="data_append">
                      <type>
                         <array>
-                           <dimension lower="0" upper="255"/>
+                           <dimension lower="0" upper="12"/>
                            <baseType>
-                              <UDINT/>
+                              <SINT/>
                            </baseType>
                         </array>
                      </type>
-                     <initialValue>
-                        <arrayValue>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="3"/>
-                           </value>
-                           <value>
-                              <simpleValue value="6"/>
-                           </value>
-                           <value>
-                              <simpleValue value="5"/>
-                           </value>
-                           <value>
-                              <simpleValue value="7"/>
-                           </value>
-                           <value>
-                              <simpleValue value="4"/>
-                           </value>
-                           <value>
-                              <simpleValue value="1"/>
-                           </value>
-                           <value>
-                              <simpleValue value="2"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                           <value>
-                              <simpleValue value="0"/>
-                           </value>
-                        </arrayValue>
-                     </initialValue>
+                  </variable>
+                  <variable name="index">
+                     <type>
+                        <DINT/>
+                     </type>
+                  </variable>
+                  <variable name="temp1">
+                     <type>
+                        <DINT/>
+                     </type>
                   </variable>
                   <variable name="i">
                      <type>
                         <DINT/>
                      </type>
                   </variable>
-                  <variable name="shReg">
+                  <variable name="tmp">
                      <type>
-                        <UDINT/>
+                        <BOOL/>
                      </type>
                   </variable>
-                  <variable name="bitMask">
+                  <variable name="varargin_1_idx_0">
                      <type>
-                        <DINT/>
+                        <BOOL/>
                      </type>
                   </variable>
-                  <variable name="input">
+                  <variable name="temp2">
                      <type>
-                        <DINT/>
+                        <BOOL/>
                      </type>
                   </variable>
-                  <variable name="bitNumber">
+                  <variable name="varargin_1_idx_1">
                      <type>
-                        <DINT/>
+                        <BOOL/>
+                     </type>
+                  </variable>
+                  <variable name="temp3">
+                     <type>
+                        <BOOL/>
+                     </type>
+                  </variable>
+                  <variable name="varargin_1_idx_2">
+                     <type>
+                        <BOOL/>
+                     </type>
+                  </variable>
+                  <variable name="temp4">
+                     <type>
+                        <BOOL/>
                      </type>
                   </variable>
                </localVars>
@@ -877,64 +140,126 @@
             <body>
                <ST>
                   <xhtml xmlns="http://www.w3.org/1999/xhtml">
-<![CDATA[(* S-Function (scomcrcgen): '<S1>/General CRC Generator' incorporates:
+<![CDATA[(* MATLAB Function: '<S1>/CRC without var length vector 1' incorporates:
+ *  Inport: '<Root>/In1' *)
+(* MATLAB Function 'Subsys Matlab Fun CRC Generator/CRC without var length vector 1': '<S2>:1' *)
+(* '<S2>:1:3' data_l=length(data); *)
+(* '<S2>:1:4' CRC_length = length(gen_poly)-1 *)
+(* '<S2>:1:6' zrs = zeros(CRC_length,1); *)
+(* '<S2>:1:7' data_append=[logical(data); zrs]; *)
+
+FOR i := 0 TO 9 DO 
+    data_append[i] := BOOL_TO_SINT(In1[i]);
+END_FOR;
+
+data_append[10] := 0;
+data_append[11] := 0;
+data_append[12] := 0;
+(* '<S2>:1:9' index = 1; *)
+index := 0;
+(* '<S2>:1:10' while index <= data_l *)
+WHILE (index + 1) <= 10 DO
+    (* '<S2>:1:11' current_data = data_append(index:CRC_length+index) *)
+    (* '<S2>:1:12' tmp = xor(current_data,gen_poly) *)
+    (* '<S2>:1:13' [k r] = max( tmp~=0, [], 1 ); *)
+    tmp := DWORD_TO_DINT(DINT_TO_DWORD(BOOL_TO_DINT(data_append[index] <> 0)) XOR DINT_TO_DWORD(BOOL_TO_DINT(In2[0] <> 0.0))) <> 0;
+    varargin_1_idx_0 := tmp;
+    temp2 := tmp;
+    tmp := DWORD_TO_DINT(DINT_TO_DWORD(BOOL_TO_DINT(data_append[1 + index] <> 0)) XOR DINT_TO_DWORD(BOOL_TO_DINT(In2[1] <> 0.0))) <> 0;
+    varargin_1_idx_1 := tmp;
+    temp3 := tmp;
+    tmp := DWORD_TO_DINT(DINT_TO_DWORD(BOOL_TO_DINT(data_append[2 + index] <> 0)) XOR DINT_TO_DWORD(BOOL_TO_DINT(In2[2] <> 0.0))) <> 0;
+    varargin_1_idx_2 := tmp;
+    temp4 := tmp;
+    tmp := DWORD_TO_DINT(DINT_TO_DWORD(BOOL_TO_DINT(data_append[3 + index] <> 0)) XOR DINT_TO_DWORD(BOOL_TO_DINT(In2[3] <> 0.0))) <> 0;
+    i := -1;
+
+    IF BOOL_TO_DINT(varargin_1_idx_0) < BOOL_TO_DINT(varargin_1_idx_1) THEN 
+        varargin_1_idx_0 := TRUE;
+        i := 0;
+    END_IF;
+
+
+    IF BOOL_TO_DINT(varargin_1_idx_0) < BOOL_TO_DINT(varargin_1_idx_2) THEN 
+        varargin_1_idx_0 := TRUE;
+        i := 1;
+    END_IF;
+
+
+    IF BOOL_TO_DINT(varargin_1_idx_0) < BOOL_TO_DINT(tmp) THEN 
+        varargin_1_idx_0 := TRUE;
+        i := 2;
+    END_IF;
+
+    (* k max in row, r index of max *)
+    (* '<S2>:1:14' if k~=0 *)
+
+    IF varargin_1_idx_0 THEN 
+        (* coder.varsize('tt'); *)
+        (* %         tt=find(tmp~=0,1); *)
+        (* tt=strfind(tmp,[0 1]); *)
+        (* tmp_index = tt(1); *)
+        (* '<S2>:1:19' tmp_index = r(1); *)
+        temp1 := i + 2;
+    ELSE 
+        (* '<S2>:1:20' else *)
+        (* '<S2>:1:21' tmp_index=CRC_length+2; *)
+        temp1 := 5;
+    END_IF;
+
+    (* '<S2>:1:24' data_append(index:index+CRC_length)=tmp; *)
+    data_append[index] := BOOL_TO_SINT(temp2);
+    data_append[1 + index] := BOOL_TO_SINT(temp3);
+    data_append[2 + index] := BOOL_TO_SINT(temp4);
+    data_append[3 + index] := BOOL_TO_SINT(tmp);
+    (* data_start = index+CRC_length+1; *)
+    (* prev_index = index; *)
+    (* '<S2>:1:27' index = index + tmp_index-1; *)
+    index := (index + temp1) - 1;
+END_WHILE;
+(* '<S2>:1:30' data_with_CRC = [data; data_append(data_l+1:data_l+CRC_length)]; *)
+(* logical([data; CRC_Code]); *)
+(* Outport: '<Root>/Out1' incorporates:
  *  Inport: '<Root>/In1'
- *  Outport: '<Root>/Out1' *)
-(* Initialize for current sub-frame *)
-shReg := 0;
-bitNumber := 0;
-i := 0;
-WHILE DINT_TO_UDINT(i) < 4 DO
-    input := 0;
-    bitMask := 4;
+ *  MATLAB Function: '<S1>/CRC without var length vector 1' *)
 
-    IF bitNumber < 10 THEN 
-        Out1[bitNumber] := In1[bitNumber];
-        (* Build input data chunk *)
-        input := UDINT_TO_DINT(DWORD_TO_UDINT(SHL(UDINT_TO_DWORD(BOOL_TO_UDINT(In1[bitNumber])), 2)));
-        bitMask := 2;
-        bitNumber := bitNumber + 1;
-    END_IF;
+FOR i := 0 TO 9 DO 
+    Out1[i] := PLC_BOOL_TO_LREAL(in := In1[i]);
+END_FOR;
 
+Out1[10] := SINT_TO_LREAL(data_append[10]);
+Out1[11] := SINT_TO_LREAL(data_append[11]);
+Out1[12] := SINT_TO_LREAL(data_append[12]);
+(* End of Outport: '<Root>/Out1' *)
+]]>
+</xhtml>
+               </ST>
+            </body>
+         </pou>
+         <pou name="PLC_BOOL_TO_LREAL" pouType="function">
+            <interface>
+               <returnType>
+                  <LREAL/>
+               </returnType>
+               <inputVars>
+                  <variable name="in">
+                     <type>
+                        <BOOL/>
+                     </type>
+                  </variable>
+               </inputVars>
+               <localVars/>
+            </interface>
+            <body>
+               <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">
+<![CDATA[
+IF in THEN 
+    PLC_BOOL_TO_LREAL := 1.0;
+ELSE 
+    PLC_BOOL_TO_LREAL := 0.0;
+END_IF;
 
-    IF bitNumber < 10 THEN 
-        Out1[bitNumber] := In1[bitNumber];
-        (* Build input data chunk *)
-        input := UDINT_TO_DINT(DWORD_TO_UDINT(UDINT_TO_DWORD(DINT_TO_UDINT(bitMask) * BOOL_TO_UDINT(In1[bitNumber])) OR UDINT_TO_DWORD(DINT_TO_UDINT(input))));
-        bitMask := UDINT_TO_DINT(DWORD_TO_UDINT(SHR(UDINT_TO_DWORD(DINT_TO_UDINT(bitMask)), 1)));
-        bitNumber := bitNumber + 1;
-    END_IF;
-
-
-    IF bitNumber < 10 THEN 
-        Out1[bitNumber] := In1[bitNumber];
-        (* Build input data chunk *)
-        input := UDINT_TO_DINT(DWORD_TO_UDINT(UDINT_TO_DWORD(DINT_TO_UDINT(bitMask) * BOOL_TO_UDINT(In1[bitNumber])) OR UDINT_TO_DWORD(DINT_TO_UDINT(input))));
-        bitNumber := bitNumber + 1;
-    END_IF;
-
-    (* Retrieve value from CRC table and update register *)
-    shReg := DWORD_TO_UDINT(((SHL(UDINT_TO_DWORD(shReg), 3)) OR UDINT_TO_DWORD(DINT_TO_UDINT(input))) XOR UDINT_TO_DWORD(c_GeneralCRCGenerator_CRCTa[shReg AND 7]));
-    i := i + 1;
-END_WHILE;
-(* Process the leftover bits *)
-i := 0;
-WHILE DINT_TO_UDINT(i) < 1 DO
-    bitNumber := UDINT_TO_DINT(DWORD_TO_UDINT((SHR(UDINT_TO_DWORD(shReg), 2)) AND 1));
-    shReg := DWORD_TO_UDINT(SHL(UDINT_TO_DWORD(shReg), 1));
-
-    IF DINT_TO_UDINT(bitNumber) <> 0 THEN 
-        shReg := DWORD_TO_UDINT(UDINT_TO_DWORD(shReg) XOR 3);
-    END_IF;
-
-    i := i + 1;
-END_WHILE;
-(* Apply final XOR *)
-(* Output the register *)
-Out1[10] := DWORD_TO_UDINT((SHR(UDINT_TO_DWORD(shReg), 2)) AND 1) <> 0;
-Out1[11] := DWORD_TO_UDINT((SHR(UDINT_TO_DWORD(shReg), 1)) AND 1) <> 0;
-Out1[12] := DWORD_TO_UDINT(UDINT_TO_DWORD(shReg) AND 1) <> 0;
-(* End of S-Function (scomcrcgen): '<S1>/General CRC Generator' *)
 ]]>
 </xhtml>
                </ST>
@@ -958,7 +283,8 @@ Out1[12] := DWORD_TO_UDINT(UDINT_TO_DWORD(shReg) AND 1) <> 0;
          <ProjectStructure>
             <Object Name="GVL_CONSTS"/>
             <Object Name="GVL_VARS"/>
-            <Object Name="Subsystem1"/>
+            <Object Name="Subsys"/>
+            <Object Name="PLC_BOOL_TO_LREAL"/>
          </ProjectStructure>
       </data>
    </addData>
